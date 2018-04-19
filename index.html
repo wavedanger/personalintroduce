@@ -1,0 +1,136 @@
+<!-- 洪蔚彬 2018/4/19 -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewpoint" content="width:device-width,initial-scale=1.0">
+	<link rel="stylesheet" href="lib/bootstrap/css/bootstrap.min.css" type="text/css">
+	<link rel="stylesheet" href="lib/style.css" type="text/css">
+	<title>洪蔚彬职业生涯规划</title>
+</head>
+<body>
+	<div class="container">
+		<div class="row">
+			<div class="col-md-12 hidden-xs">
+				<div class="headtoolbar">
+					<h1 class="text-center ">这里是标题</h1>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="container">
+		<div class="row">
+			<div class="col-md-2 col-xs-4">
+				<ul class="nav nav-tabs nav-stacked text-center">
+				 <li class="active"><a href="#article1" data-toggle="tab">内容一</a></li>
+				 <li class=""><a href="#article2" data-toggle="tab">内容二</a></li>
+				 <li class=""><a href="#article3" data-toggle="tab">内容三</a></li>
+				 <li class=""><a href="#article4" data-toggle="tab">内容四</a></li>
+				 <li class=""><a href="#article5" data-toggle="tab">内容五</a></li>
+				 <li class=""><a href="#article6" data-toggle="tab">内容六</a></li>
+			 </ul>
+			</div>
+			<div class="col-md-10  col-xs-8 tab-content">	
+				<div id="article1" class="tab-pane fade in active">
+					<div class="content">
+						<p>1</p>
+					</div>
+				</div>
+				<div id="article2" class="tab-pane fade">
+					<div class="content">
+						<p>2</p>
+					</div>
+				</div>
+				<div id="article3" class="tab-pane fade">
+					<div class="content">
+						<p>3</p>
+					</div>
+				</div>
+				<div id="article4" class="tab-pane fade">
+					<div class="content">
+						<p>4</p>
+					</div>
+				</div>
+				<div id="article5" class="tab-pane fade">
+					<div class="content">
+						<p>5</p>
+					</div>
+				</div>
+				<div id="article6" class="tab-pane fade">
+					<div class="content">
+						<p>6</p>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="container">
+		<div class="row">
+			<div class="col-md-12 hidden-xs">
+				<div class="footerbar">
+					<div id="nowdate" class="pull-left">
+						<span>？</span>
+						<span>年</span>
+						<span>？</span>
+						<span>月</span>
+						<span>？</span>
+						<span>日</span>
+					</div>
+					<div id="showtime" class=" pull-right">
+						<span>00</span>
+						<span>:</span>
+						<span>00</span>
+						<span>:</span>
+						<span>00</span>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<script src="lib/jquery/jquery-1.11.0.min.js"></script>
+	<script src="lib/bootstrap/js/bootstrap.min.js"></script>
+	<script>
+//添加事件
+$(function(){
+		var date=new Date();
+		var year=date.getFullYear();
+		var month=date.getMonth()+1;
+		var day=date.getDate();
+		$('#nowdate span:eq(0)').html(year);
+		$('#nowdate span:eq(2)').html(month);
+		$('#nowdate span:eq(4)').html(day);
+		var min=0;
+		var sec=0;
+		var ms=0;
+		var timer=null;
+		var count=0;
+		setInterval(show,10);
+//生成时间
+	function show(){
+		ms++;
+		if(sec==60){
+			min++;sec=0;
+		}
+		if(ms==100){
+			sec++;ms=0;
+		}
+		var msStr=ms;
+		if(ms<10){
+			msStr="0"+ms;
+		}
+		var secStr=sec;
+		if(sec<10){
+			secStr="0"+sec;
+		}
+		var minStr=min;
+		if(min<10){
+			minStr="0"+min;
+		}
+		$('#showtime span:eq(0)').html(minStr);
+		$('#showtime span:eq(2)').html(secStr);
+		$('#showtime span:eq(4)').html(msStr);
+	}
+})
+</script>
+</body>
+</html>
